@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+For a thanks, go to the GitHub original project: https://github.com/danielcmcg/Unity-UI-Nested-Drag-and-Drop 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
