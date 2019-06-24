@@ -11,7 +11,6 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
     Vector3 startPosition;
     Vector3 diffPosition;
     GameObject canvas_;
-    static bool updateSize;
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -21,7 +20,7 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        updateSize = true;
+    
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -37,15 +36,11 @@ public class UIDrag : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerDown
     void Start()
     {
         canvas_ = GameObject.Find("Canvas");
-        updateSize = false;
     }
 
     void Update()
     {
-        if(updateSize == true)
-        {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
-        }
+        
     }
 
 }
