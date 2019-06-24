@@ -11,7 +11,7 @@ public class UIDrop : MonoBehaviour, IDropHandler
     
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log(EventSystem.current.currentSelectedGameObject);
+        //Debug.Log(EventSystem.current.currentSelectedGameObject);
         
         EventSystem.current.currentSelectedGameObject.transform.parent = transform;
         var sizey = GetComponent<RectTransform>().rect.size.y;
@@ -20,11 +20,14 @@ public class UIDrop : MonoBehaviour, IDropHandler
         {
             index = 1;
         }
-        Debug.Log(index);
+        //Debug.Log(index);
         EventSystem.current.currentSelectedGameObject.transform.SetSiblingIndex(index);
-        //transform.parent
-
-        Debug.Log("drop " + gameObject.name);
+        
+        //Debug.Log("drop " + gameObject.name);
+        
+        // rebuilds the layout and its child elements (previously done in UIDrag)
+        // the objects that allow drop are the ones who actually need this rebuild
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 
 }
